@@ -1,3 +1,5 @@
+// 장바구니 containThings
+import containThings from "../../data/user/containThings.js";
 // vendingThings 가져옴
 import vendingThings from "../../data/vending/vendingThings.js";
 // word 가져옴
@@ -22,8 +24,30 @@ const vendingChoice = async () => {
   });
 
   // 입력을 받음
-  // input = 입력("원하는 상품을 고르시오")
-  const input = await inputDetail("원하는 상품을 고르시오");
+  // input = 입력("원하는 상품을 고르시오, 이름 혹은 번호")
+  const input = await inputDetail("원하는 상품을 고르시오, 이름 혹은 번호");
+
+  //  vendingThings를 전부 확인
+  vendingThings.forEach((element) => {
+    // 이름, 혹은 번호가 일치할 시 그리고 containThings에 존재하지 않을 시
+    // containThins에 이름, id, 구매할 개수 1 지정
+    if (
+      element.name === input ||
+      element.id === Number(input) ||
+      containThings.values().id !== element.id
+    ) {
+      containThings.append({ name: element.name, id: element.id, count: 1 });
+    }
+    // 이름, 혹은 번호가 일치하지만 containThings에 존재할 시,
+    else if (
+      element.name === input ||
+      element.id === Number(input) ||
+      containThings.values().id === element.id
+    ) {
+      // containThings에서 id가 일치하는 상품의 count 1 증가
+      containThings.values().count += 1;
+    }
+  });
 
   // 버튼 누를지, 취소할 지 결정
   // buttonOrCancle = 입력("버튼을 누르겠습니까? 1. 클릭, 2. 취소")
@@ -44,15 +68,15 @@ const vendingChoice = async () => {
   //   취소를 했다면
   else if (buttonOrCancle == "2") {
     // 처음으로 되돌아감
-    getMoney(word.mainWord)
+    getMoney(word.mainWord);
   }
   //   그 외의 값을 입력시,
   // 다시 입력하라고 하면서 재귀동작함
   else {
     // 다시 입력해주세요라고 함
-    console.log("다시 입력해주세요")
+    console.log("다시 입력해주세요");
     // 함수 재귀
-    vendingChoice()
+    vendingChoice();
   }
 };
 
