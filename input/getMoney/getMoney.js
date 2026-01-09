@@ -12,7 +12,11 @@ import word from "../../data/word/word.js";
 import moneyData from "../../data/user/moneyData.js";
 // 유저의 돈을 모두 출력
 import showAllUserMoney from "../func/showAllUserMoney.js";
+// payment의 종류에 따라 기능 수행
 import paymentTypeToFunc from "../func/paymentTypeToFunc.js";
+// 자판기 관련 데이터
+import vendingData from "../../data/vending/vendingData.js";
+
 
 // 3. 지폐를 입력 받았을 시, 500원 동전으로 반환도 가능하도록 설정
 
@@ -36,7 +40,19 @@ const getMoney = async (payment) => {
     // 6번이면 moneyData에서 money_100 1감소
     // 7번이면 처음 결제방식 선택으로 가기(getMoney 다시 실행)
     // 실행
-    paymentTypeToFunc(paymentType)
+    paymentTypeToFunc(paymentType);
+
+    // 만약에 지폐를 받았을 시,
+    // 1,2,3,4 입력시
+    // 동전도 교환할 수 있도록 함
+    if (
+      payment === "1" ||
+      payment === "2" ||
+      payment === "3" ||
+      payment === "4"
+    ) {
+        vendingData.BillToCoinCheck = true
+    }
 
     // // 1번이면 moneyData에서 money_50000 1감소
     // if (paymentType === "1") {
