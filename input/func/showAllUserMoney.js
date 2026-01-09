@@ -1,16 +1,20 @@
 // user의 전체 money 데이터 가져옴
-import moneyData from "../../data/user/moneyData.js"
+import moneyData from "../../data/user/moneyData.js";
 
 // user의 전체 money 데이터를 보여줌
 const showAllUserMoney = () => {
+  // moneyData하나씩 출력
+  moneyData.forEach((element) => {
+    console.log(element);
+  });
 
-    // moneyData하나씩 출력
-    for(const i in moneyData){
-    // 값을 모두 출력
-        console.log(moneyData[i])
+  // moneyData하나씩 출력
 
-    }
+  // for(const i in moneyData){
+  // // 값을 모두 출력
+  //     console.log(moneyData[i])
 
-}
-// export 
-export default showAllUserMoney
+  // }
+};
+// export
+export default showAllUserMoney;
