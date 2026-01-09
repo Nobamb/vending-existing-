@@ -4,10 +4,7 @@
 import moneyData from "../../data/user/moneyData.js";
 // word
 import word from "../../data/word/word.js";
-// 함수
-// 유저의 현금 관련 데이터를 모두 보여줌
 import showAllUserMoney from "./showAllUserMoney.js";
-
 
 // 받은 값에 따라 각자 다른 기능 수행
 const paymentTypeToFunc = (paymentType) => {
@@ -48,6 +45,9 @@ const paymentTypeToFunc = (paymentType) => {
     } else {
       console.log("제대로 된 값을 입력하세요");
     }
+
+    // 유저의 전체 현금 데이터 보여줌
+    showAllUserMoney()
 
 }
 
