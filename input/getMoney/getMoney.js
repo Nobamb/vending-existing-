@@ -11,7 +11,8 @@ import inputDetail from "../inputDetail/inputDetail.js"
 
 // getMoney 설정
 // 카드 혹은 지폐를 받도록 함
-const getMoney = (payment) => {
+// inputDetail을 받기 위해 비동기로
+const getMoney = async (payment) => {
 
     // 만약에 카드 계산시
     if (payment === "1"){
@@ -26,7 +27,7 @@ const getMoney = (payment) => {
     // 다른 값을 입력시
     else {
         // 다시 입력하라고 하고 재귀 실행
-        const input = inputDetail("카드는 1번, 현금은 2번을 선택하세요")
+        const input = await inputDetail("카드는 1번, 현금은 2번을 선택하세요")
         getMoney(input)        
 
     }
