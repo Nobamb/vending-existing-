@@ -12,21 +12,41 @@
 
 // 100원 1개
 
-// 현금 데이터 전체를 객체 형식으로
-let moneyData = {
+// 현금 데이터 전체를 배열 및 객체 형식으로
+let moneyData = [
   // 5만원권
-  money_50000: 1,
+  {
+    name: "50000원",
+    count: 1,
+    value: 50000,
+  },
   // 1만원권
-  money_10000: 2,
-  // 5천원권
-  money_5000: 3,
-  // 1천원권
-  money_1000: 3,
-  // 500원
-  money_500: 2,
-  // 100원
-  money_100: 1,
-};
+  {
+    name: "10000원",
+    count: 1,
+    value: 10000,
+  }, // 5천원권
+  {
+    name: "5천원권",
+    count: 1,
+    value: 5000,
+  }, // 1천원권
+  {
+    name: "1000원",
+    count: 1,
+    value: 50000,
+  }, // 500원
+  {
+    name: "500원",
+    count: 1,
+    value: 50000,
+  }, // 100원
+  {
+    name: "100원",
+    count: 1,
+    value: 50000,
+  },
+];
 
-// export 
-export default moneyData
+// export
+export default moneyData;
