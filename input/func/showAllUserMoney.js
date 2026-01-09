@@ -5,9 +5,9 @@ import moneyData from "../../data/user/moneyData.js"
 const showAllUserMoney = () => {
 
     // moneyData하나씩 출력
-    for(const moneytype in moneyData){
+    for(const i in moneyData){
     // 값을 모두 출력
-        console.log(moneytype)
+        console.log(moneyData[i])
 
     }
 
