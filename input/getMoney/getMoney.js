@@ -4,36 +4,33 @@
 //     3. 카드가 입력되면 물건을 선택한 후 그 값에 따라 현금을 지불한다.
 //     4. 돈 또는 카드의 금액이 부족하면, 돈은 받은 금액을 환불하고, 카드는 취소된다.
 
-import inputDetail from "../inputDetail/inputDetail.js"
+import inputDetail from "../inputDetail/inputDetail.js";
 
 // 3. 지폐를 입력 받았을 시, 500원 동전으로 반환도 가능하도록 설정
-
 
 // getMoney 설정
 // 카드 혹은 지폐를 받도록 함
 // inputDetail을 받기 위해 비동기로
 const getMoney = async (payment) => {
+  // 만약에 카드 계산시
+  if (payment === "1") {
+    console.log("카드계산");
+  }
+  // 현금 계산시
+  else if (payment === "2") {
+    // 지불할 현금 종류 결정
+    inputDetail(
+      "지불할 현금을 고르시오\n 1. 50000원 2. 10000원 \n3. 5000원 4. 1000원 5. 500원 6. 100원 7. 뒤로 가기"
+    );
 
-    // 만약에 카드 계산시
-    if (payment === "1"){
-        console.log("카드계산")
-    }
-    // 현금 계산시
-    else if(payment === "2"){
-
-        console.log("현금계산")
-
-    }    
-    // 다른 값을 입력시
-    else {
-        // 다시 입력하라고 하고 재귀 실행
-        const input = await inputDetail("카드는 1번, 현금은 2번을 선택하세요")
-        getMoney(input)        
-
-    }
-
-}
-
+  }
+  // 다른 값을 입력시
+  else {
+    // 다시 입력하라고 하고 재귀 실행
+    const input = await inputDetail("카드는 1번, 현금은 2번을 선택하세요");
+    getMoney(input);
+  }
+};
 
 // export
-export default getMoney
+export default getMoney;
