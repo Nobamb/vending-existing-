@@ -1,3 +1,7 @@
+// vendingThings 가져옴
+
+import vendingThings from "../../data/vending/vendingThings.js"
+
 // 상품을 선택할 수 있음
 // 상품관련해서 선택창을 띄우도록 함
 // 선택창은 vendingThing를 순회하여 보여줌
@@ -8,8 +12,15 @@
 
 
 const vendingChoice = () => {
+    // vendingThings의 값들을 하나하나 출력
+    vendingThings.forEach((element)=>{
 
+        console.log(element.id, element.name)
 
+    })
 
 
 }
+
+// export
+export default vendingChoice
