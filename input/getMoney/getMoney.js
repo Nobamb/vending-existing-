@@ -8,7 +8,10 @@
 import inputDetail from "../inputDetail/inputDetail.js";
 // word 내용 import
 import word from "../../data/word/word.js";
-
+// moneyData가져옴
+import moneyData from "../../data/user/moneyData.js";
+// 유저의 돈을 모두 출력
+import showAllUserMoney from "../func/showAllUserMoney.js";
 
 // 3. 지폐를 입력 받았을 시, 500원 동전으로 반환도 가능하도록 설정
 
@@ -23,9 +26,7 @@ const getMoney = async (payment) => {
   // 현금 계산시
   else if (payment === "2") {
     // 지불할 현금 종류 결정
-    const payment = inputDetail(
-      word.billPaymentWord
-    );
+    const paymentType = await inputDetail(word.billPaymentWord);
     // 1번이면 moneyData에서 money_50000 1감소
     // 2번이면 moneyData에서 money_10000 1감소
     // 3번이면 moneyData에서 money_5000 1감소
@@ -33,10 +34,42 @@ const getMoney = async (payment) => {
     // 5번이면 moneyData에서 money_500 1감소
     // 6번이면 moneyData에서 money_100 1감소
     // 7번이면 처음 결제방식 선택으로 가기(getMoney 다시 실행)
-
-
-
-
+    // 1번이면 moneyData에서 money_50000 1감소
+    if (paymentType === "1") {
+      console.log("50000원 지불");
+      moneyData.money_50000 -= 1;
+    }
+    // 2번이면 moneyData에서 money_10000 1감소
+    else if (paymentType === "2") {
+      console.log("10000원 지불");
+      moneyData.money_10000 -= 1;
+    }
+    // 3번이면 moneyData에서 money_5000 1감소
+    else if (paymentType === "3") {
+      console.log("5000원 지불");
+      moneyData.money_5000 -= 1;
+    }
+    // 4번이면 moneyData에서 money_1000 1감소
+    else if (paymentType === "4") {
+      console.log("1000원 지불");
+      moneyData.money_1000 -= 1;
+    }
+    // 5번이면 moneyData에서 money_500 1감소
+    else if (paymentType === "5") {
+      console.log("500원 지불");
+      moneyData.money_500 -= 1;
+    }
+    // 6번이면 moneyData에서 money_100 1감소
+    else if (paymentType === "6") {
+      console.log("100원 지불");
+      moneyData.money_100 -= 1;
+    }
+    // 7번이면 처음으로 되돌아 감
+    else if (paymentType === "7") {
+      getMoney(word.mainWord);
+    } else {
+      console.log("제대로 된 값을 입력하세요");
+    }
   }
   // 다른 값을 입력시
   else {
