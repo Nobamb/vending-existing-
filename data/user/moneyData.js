@@ -34,17 +34,17 @@ let moneyData = [
   {
     name: "1000원",
     count: 1,
-    value: 50000,
+    value: 1000,
   }, // 500원
   {
     name: "500원",
     count: 1,
-    value: 50000,
+    value: 500,
   }, // 100원
   {
     name: "100원",
     count: 1,
-    value: 50000,
+    value: 100,
   },
 ];
 
