@@ -1,6 +1,9 @@
 // vendingThings 가져옴
-
 import vendingThings from "../../data/vending/vendingThings.js";
+// word 가져옴
+import word from "../../data/word/word.js";
+// 돈을 받는 함수(처음으로 되돌아감)
+import getMoney from "../getMoney/getMoney.js";
 // input을 받도록 함
 import inputDetail from "../inputDetail/inputDetail.js";
 
@@ -20,24 +23,37 @@ const vendingChoice = async () => {
 
   // 입력을 받음
   // input = 입력("원하는 상품을 고르시오")
-  const input = await inputDetail("원하는 상품을 고르시오")
-
+  const input = await inputDetail("원하는 상품을 고르시오");
 
   // 버튼 누를지, 취소할 지 결정
   // buttonOrCancle = 입력("버튼을 누르겠습니까? 1. 클릭, 2. 취소")
-  const buttonOrCancle = await inputDetail("버튼을 누르겠습니까? 1. 클릭, 2. 취소")
-
+  const buttonOrCancle = await inputDetail(
+    "버튼을 누르겠습니까? 1. 클릭, 2. 취소"
+  );
 
   // 버튼을 눌렀을 때
-  // 만약에 투입한 금액이 부족하면
-  // 잔돈 반환하고 처음부터 다시
-  // 투입한 금액 이상일때
-  // 물건을 가져올 수 있으며,
-  // 해당 금액보다 큰 돈을 넣었다면 거스름돈 반환(500/100원단위)
-  // 반환해 줄 금액이 부족하다면 환불
+  if (buttonOrCancle == "1") {
+    // 만약에 투입한 금액이 부족하면
+    // 잔돈 반환하고 처음부터 다시
+    // 투입한 금액 이상일때
+    // 물건을 가져올 수 있으며,
+    // 해당 금액보다 큰 돈을 넣었다면 거스름돈 반환(500/100원단위)
+    // 반환해 줄 금액이 부족하다면 환불
+  }
 
   //   취소를 했다면
-  // 처음으로 되돌아감
+  else if (buttonOrCancle == "2") {
+    // 처음으로 되돌아감
+    getMoney(word.mainWord)
+  }
+  //   그 외의 값을 입력시,
+  // 다시 입력하라고 하면서 재귀동작함
+  else {
+    // 다시 입력해주세요라고 함
+    console.log("다시 입력해주세요")
+    // 함수 재귀
+    vendingChoice()
+  }
 };
 
 // export
