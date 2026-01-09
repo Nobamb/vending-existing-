@@ -19,9 +19,20 @@ const getMoney = async (payment) => {
   // 현금 계산시
   else if (payment === "2") {
     // 지불할 현금 종류 결정
-    inputDetail(
+    const payment = inputDetail(
       "지불할 현금을 고르시오\n 1. 50000원 2. 10000원 \n3. 5000원 4. 1000원 5. 500원 6. 100원 7. 뒤로 가기"
     );
+    // 1번이면 moneyData에서 money_50000 1감소
+    // 2번이면 moneyData에서 money_10000 1감소
+    // 3번이면 moneyData에서 money_5000 1감소
+    // 4번이면 moneyData에서 money_1000 1감소
+    // 5번이면 moneyData에서 money_500 1감소
+    // 6번이면 moneyData에서 money_100 1감소
+    // 7번이면 처음 결제방식 선택으로 가기(getMoney 다시 실행)
+
+    
+
+
 
   }
   // 다른 값을 입력시
