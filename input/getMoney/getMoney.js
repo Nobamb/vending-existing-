@@ -5,3 +5,31 @@
 //     4. 돈 또는 카드의 금액이 부족하면, 돈은 받은 금액을 환불하고, 카드는 취소된다.
 
 // 3. 지폐를 입력 받았을 시, 500원 동전으로 반환도 가능하도록 설정
+
+
+// getMoney 설정
+// 카드 혹은 지폐를 받도록 함
+const getMoney = (payment) => {
+
+    // 만약에 카드 계산시
+    if (payment === "1"){
+        console.log("카드계산")
+    }
+    else if(payment === "2"){
+
+        console.log("현금계산")
+
+    }    
+    else {
+
+        console.log("카드는 1번, 현금은 2번을 선택하세요")
+        const payment = prompt("1번 혹은 2번을 선택하세요")
+        getMoney(payment)        
+
+    }
+
+}
+
+
+// export
+export default getMoney
