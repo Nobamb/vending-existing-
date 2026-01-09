@@ -16,6 +16,7 @@ import showAllUserMoney from "../func/showAllUserMoney.js";
 import paymentTypeToFunc from "../func/paymentTypeToFunc.js";
 // 자판기 관련 데이터
 import vendingData from "../../data/vending/vendingData.js";
+import vendingChoice from "../choice/vendingChoice.js";
 
 // 3. 지폐를 입력 받았을 시, 500원 동전으로 반환도 가능하도록 설정
 
@@ -54,14 +55,29 @@ const getMoney = async (payment) => {
     }
 
     // 선택창 발생
-    const howToUseCash = inputDetail(
+    const howToUseCash = await inputDetail(
       "상품을 구입하고 싶으면 1, 동전으로 교환한다면 2, 처음으로 가고싶다면 3, 다시 선택할 것이라면 4번을 선택하십시오"
     );
-
     // 만약에 상품을 구입할 것이라면 1
+    if (howToUseCash === "1") {
+      vendingChoice();
+    }
     // 동전으로 교환할 것이라면 2
+    else if (howToUseCash === "2") {
+      // 동전교환(output때 구현)
+      // 임의로 console.log만 구현
+      console.log("동전교환")
+    }
     // 취소하고 처음으로 갈 것이라면 3
+    else if(howToUseCash === "3"){
+      getMoney(word.mainWord)
+    }
     // 그외의 값은 다시 선택하게 하기
+    else{
+      // getMoney를 실행하도록 지정,
+      // 함수로 묶게 될시, 그 함수를 재귀하도록
+      getMoney(word.mainReWord)
+    }
 
     // // 1번이면 moneyData에서 money_50000 1감소
     // if (paymentType === "1") {
