@@ -1,14 +1,14 @@
-// 클래스의 static으로 전달
+// 객체 형식으로 저장
 // 순수 변수로 하면 
 // 참조되는 값이 됨
 // 데이터를 공유해야만 하기 때문
-class VendingData{
+let vendingData = {
 
     // 기본값은 false
     // 지폐가 존재하면 true
-    static BillToCoinCheck = false
+    BillToCoinCheck : false
 
 }
 
 // export 
-export default VendingData
+export default vendingData
