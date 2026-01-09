@@ -8,10 +8,6 @@
 import inputDetail from "../inputDetail/inputDetail.js";
 // word 내용 import
 import word from "../../data/word/word.js";
-// moneyData가져옴
-import moneyData from "../../data/user/moneyData.js";
-// 유저의 돈을 모두 출력
-import showAllUserMoney from "../func/showAllUserMoney.js";
 // payment의 종류에 따라 기능 수행
 import paymentTypeToFunc from "../func/paymentTypeToFunc.js";
 // 자판기 관련 데이터
