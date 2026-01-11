@@ -20,6 +20,8 @@ const containThingsPlus = async () => {
       element.id === Number(input) ||
       containThings.values().id !== element.id
     ) {
+      // 테스트
+      console.log(element.name)
       containThings.push({ name: element.name, id: element.id, count: 1 });
     }
     // 이름, 혹은 번호가 일치하지만 containThings에 존재할 시,
@@ -28,6 +30,8 @@ const containThingsPlus = async () => {
       element.id === Number(input) ||
       containThings.values().id === element.id
     ) {
+      // 테스트
+      console.log(element.name)
       // containThings에서 id가 일치하는 상품의 count 1 증가
       containThings.values().count += 1;
     }
