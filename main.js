@@ -10,4 +10,4 @@ import inputDetail from "./input/inputDetail/inputDetail.js";
 const input = await inputDetail(word.mainWord)
 
 // getMoney 테스트
-getMoney(input)
+await getMoney(input)
