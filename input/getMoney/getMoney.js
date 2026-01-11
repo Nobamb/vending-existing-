@@ -36,7 +36,7 @@ const getMoney = async (payment) => {
     // 6번이면 moneyData에서 money_100 1감소
     // 7번이면 처음 결제방식 선택으로 가기(getMoney 다시 실행)
     // 실행
-    paymentTypeToFunc(paymentType);
+    await paymentTypeToFunc(paymentType);
 
     // 만약에 지폐를 받았을 시,
     // 1,2,3,4 입력시
@@ -56,7 +56,7 @@ const getMoney = async (payment) => {
     );
     // 만약에 상품을 구입할 것이라면 1
     if (howToUseCash === "1") {
-      vendingChoice();
+      await vendingChoice();
     }
     // 동전으로 교환할 것이라면 2
     else if (howToUseCash === "2") {
@@ -66,13 +66,13 @@ const getMoney = async (payment) => {
     }
     // 취소하고 처음으로 갈 것이라면 3
     else if(howToUseCash === "3"){
-      getMoney(word.mainWord)
+      await getMoney(word.mainWord)
     }
     // 그외의 값은 다시 선택하게 하기
     else{
       // getMoney를 실행하도록 지정,
       // 함수로 묶게 될시, 그 함수를 재귀하도록
-      getMoney(word.mainReWord)
+      await getMoney(word.mainReWord)
     }
 
     // // 1번이면 moneyData에서 money_50000 1감소
@@ -116,7 +116,7 @@ const getMoney = async (payment) => {
   else {
     // 다시 입력하라고 하고 재귀 실행
     const input = await inputDetail(word.mainReWord);
-    getMoney(input);
+    await getMoney(input);
   }
 };
 
