@@ -30,7 +30,7 @@ const howToUseCashFunc = async () => {
   else if (howToUseCash === "3") {
     // 장바구니 비우기
     containThings = [];
-
+    // 받은 돈도 원상복귀 시키기(내일 진행)
     await getMoney(word.mainWord);
   }
   // 추가로 현금을 넣고싶다면 4
@@ -38,6 +38,8 @@ const howToUseCashFunc = async () => {
     // 지불할 현금 종류 결정
     const paymentType = await inputDetail(word.billPaymentWord); 
     await paymentTypeToFunc(paymentType);
+    // 재귀 진행
+    await howToUseCashFunc()
   }
 
   // 그외의 값은 다시 선택하게 하기
