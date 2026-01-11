@@ -30,7 +30,7 @@ const vendingChoice = async () => {
 
 
   // containThingPlus 함수 사용
-  containThingsPlus()
+  await containThingsPlus()
 
   // //  vendingThings를 전부 확인
   // vendingThings.forEach((element) => {
