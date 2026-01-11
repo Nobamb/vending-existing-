@@ -73,7 +73,7 @@ const vendingChoice = async () => {
   //   취소를 했다면
   else if (buttonOrCancle == "2") {
     // 처음으로 되돌아감
-    getMoney(word.mainWord);
+    await getMoney(word.mainWord);
   }
   //   그 외의 값을 입력시,
   // 다시 입력하라고 하면서 재귀동작함
@@ -81,7 +81,7 @@ const vendingChoice = async () => {
     // 다시 입력해주세요라고 함
     console.log("다시 입력해주세요");
     // 함수 재귀
-    vendingChoice();
+    await vendingChoice();
   }
 };
 
