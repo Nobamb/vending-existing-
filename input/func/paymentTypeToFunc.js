@@ -5,6 +5,9 @@ import word from "../../data/word/word.js";
 import showAllUserMoney from "./showAllUserMoney.js";
 // 사용자와 자판기의 현금 교환
 import moneyToVending from "./moneyToVending.js";
+// getMoney불러옴
+import getMoney from "../getMoney/getMoney.js";
+
 
 // 받은 값에 따라 각자 다른 기능 수행
 const paymentTypeToFunc = (paymentType) => {
