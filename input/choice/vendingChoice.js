@@ -36,7 +36,7 @@ const vendingChoice = async () => {
       element.id === Number(input) ||
       containThings.values().id !== element.id
     ) {
-      containThings.append({ name: element.name, id: element.id, count: 1 });
+      containThings.push({ name: element.name, id: element.id, count: 1 });
     }
     // 이름, 혹은 번호가 일치하지만 containThings에 존재할 시,
     else if (
