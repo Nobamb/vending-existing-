@@ -16,6 +16,9 @@ const paymentTypeToFunc = async (paymentType) => {
   // 1번이면 moneyData에서 money_50000 1감소
   if (paymentType === "1") {
     
+    // 배열의 순서를 파라미터로 받음
+    // moneyCountCheck(0)
+
     // 만약에 현금의 수가 1 이상일 때
     if(moneyData[0].count >= 1){
       console.log("50000원 지불");
