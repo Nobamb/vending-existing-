@@ -7,20 +7,36 @@ import showAllUserMoney from "./showAllUserMoney.js";
 import moneyToVending from "./moneyToVending.js";
 // getMoney불러옴
 import getMoney from "../getMoney/getMoney.js";
+// moneydata 불러옴
+import moneyData from "../../data/user/moneyData.js";
+import inputDetail from "../inputDetail/inputDetail.js";
 
 // 받은 값에 따라 각자 다른 기능 수행
 const paymentTypeToFunc = async (paymentType) => {
   // 1번이면 moneyData에서 money_50000 1감소
   if (paymentType === "1") {
-    console.log("50000원 지불");
-    // 값 교환
-    moneyToVending(0);
-    // moneyData[0].count -= 1;
-    // //   자판기가 받을 돈 증가
-    // vendingMoney[0].count +=1
-
-    // 유저의 전체 현금 데이터 보여줌
-    showAllUserMoney();
+    
+    // 만약에 현금의 수가 1 이상일 때
+    if(moneyData[0].count >= 1){
+      console.log("50000원 지불");
+      // 값 교환
+      moneyToVending(0);
+      // moneyData[0].count -= 1;
+      // //   자판기가 받을 돈 증가
+      // vendingMoney[0].count +=1
+  
+      // 유저의 전체 현금 데이터 보여줌
+      showAllUserMoney();
+    }
+    // 아니라면 지불할 수 없다며
+    // 터미널에 띄우기
+    // 그리고 원상태로 되돌아가기(재귀)
+    else{
+      console.log("현재 현금이 존재하지 않습니다. 다시 시도해주세요")
+      // 원하는 현금 투입
+      const paymentType = await inputDetail(word.billPaymentWord)
+      await paymentTypeToFunc(paymentType)
+    }
   }
   // 2번이면 moneyData에서 money_10000 1감소
   else if (paymentType === "2") {
